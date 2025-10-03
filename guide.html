@@ -1,237 +1,69 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Ralsei Utilities Bot Guide</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elliot Training</title>
   <style>
     body {
-      font-family: "Roboto", Arial, sans-serif;
-      background: linear-gradient(135deg, #22223b 0%, #6c63ff 100%);
-      color: #f5f5fa;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background: #f0f0f0;
     }
-    .container {
-      max-width: 650px;
-      margin: 40px auto;
-      background: rgba(34, 34, 59, 0.98);
-      border-radius: 18px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-      padding: 32px 24px;
-      position: relative;
-      overflow: hidden;
-    }
-    .banner {
-      display: block;
-      margin: 0 auto 18px auto;
-      max-width: 320px;
-      width: 100%;
-      height: auto;
-      border-radius: 16px;
-      box-shadow: 0 0 28px #6c63ff55;
-      animation: logoPop 1.2s cubic-bezier(.56,1.41,.71,-0.37);
-    }
-    .logo {
-      display: block;
-      margin: 0 auto 18px auto;
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      box-shadow: 0 0 28px #6c63ff55;
-      animation: logoPop 1.2s cubic-bezier(.56,1.41,.71,-0.37);
-    }
-    @keyframes logoPop {
-      0% { transform: scale(0.7); opacity: 0; }
-      70% { transform: scale(1.15); opacity: 1;}
-      100% { transform: scale(1); }
-    }
-    .navbar {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      margin-bottom: 10px;
-      gap: 10px;
-      padding: 0;
-    }
-    .nav-btn {
-      background: #6c63ff;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 1.08em;
-      padding: 8px 20px;
-      margin: 8px 0;
-      cursor: pointer;
+    header {
+      position: fixed;
+      top: 10px;
+      left: 15px;
+      font-size: 22px;
       font-weight: bold;
-      box-shadow: 0 2px 10px #6c63ff44;
-      transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.19s;
-      outline: none;
+      color: #222;
     }
-    .nav-btn:hover {
-      background: #fff;
-      color: #6c63ff;
-      box-shadow: 0 0 20px #6c63ff88;
-      transform: scale(1.07);
-    }
-    h1 {
-      font-size: 2.4em;
-      margin-bottom: 0.4em;
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
-      text-shadow: 0 2px 8px #6c63ff77;
-      letter-spacing: 2px;
     }
     h2 {
-      font-size: 1.4em;
-      margin-top: 2em;
-      margin-bottom: 0.5em;
-      color: #6c63ff;
+      margin: 8px 0;
     }
-    ul {
-      margin: 0.5em 0 1em 1.2em;
-      padding: 0;
-    }
-    li, .example ul li {
-      margin-bottom: 0.6em;
-      background: rgba(108,99,255,0.04);
-      padding: 0.24em 0.9em;
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #007acc;
+      color: white;
+      border: none;
       border-radius: 6px;
-      transition: background 0.25s, box-shadow 0.25s, transform 0.22s;
       cursor: pointer;
-      position: relative;
+      transition: 0.3s;
     }
-    li:hover, .example ul li:hover {
-      background: #6c63ff44;
-      box-shadow: 0 0 12px #6c63ff99;
-      transform: scale(1.03);
-      z-index: 1;
-    }
-    .emoji {
-      font-size: 1.2em;
-      margin-right: 0.3em;
-    }
-    .section {
-      margin-bottom: 1.7em;
-    }
-    .example {
-      background: #2d2d44;
-      padding: 1em;
-      border-radius: 8px;
-      margin: 1em 0;
-      font-size: 1em;
-      box-shadow: 0 2px 18px #6c63ff33;
-    }
-    a {
-      color: #6c63ff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.22s, text-shadow 0.22s, transform 0.21s;
-    }
-    a:hover {
-      color: #fff;
-      text-shadow: 0 0 12px #6c63ff, 0 1px 18px #fff;
-      transform: scale(1.08);
-      text-decoration: underline;
-    }
-    .support {
-      text-align: center;
-      margin-top: 2em;
-      font-size: 1.08em;
-    }
-    @media (max-width: 700px) {
-      .container {
-        padding: 16px 8px;
-      }
-      .banner {
-        max-width: 220px;
-      }
-      .logo {
-        width: 70px;
-        height: 70px;
-      }
-      .nav-btn {
-        font-size: 1em;
-        padding: 6px 14px;
-      }
+    button:hover {
+      background-color: #005fa3;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <nav class="navbar">
-      <button class="nav-btn" onclick="window.location.href='empty.html'">🏠 Home</button>
-      <button class="nav-btn" onclick="window.location.href='index.html'">📖 Guide</button>
-    </nav>
-    <!-- Deltarune banner for Home and Guide -->
-    <img src="https://fontmeme.com/temporary/aee81b342d8c0e20889c29f09ccf2f85.png" alt="Deltarune Banner" class="banner">
-    <!-- Deltarune logo -->
-    <img src="https://fontmeme.com/temporary/aee81b342d8c0e20889c29f09ccf2f85.png" alt="Deltarune Logo" class="logo">
-    <h1>📖 Ralsei Utilities Bot Guide</h1>
-    
-    <div class="section">
-      <span class="emoji">🚀</span><strong>Getting Started</strong>
-      <ul>
-        <li>Invite <b>Ralsei Utilities</b> to your server.</li>
-        <li>Make sure it has the right permissions: <b>Administrator</b> or at least <b>Manage Roles, Kick, Ban, and Manage Messages</b>.</li>
-        <li>Type <b>/help</b> to view all available commands.</li>
-      </ul>
-    </div>
-    
-    <div class="section">
-      <span class="emoji">🛡️</span><strong>Moderation Commands</strong>
-      <ul>
-        <li><b>/ban @user [reason]</b> — Ban a user (optional reason).</li>
-        <li><b>/kick @user [reason]</b> — Kick a user.</li>
-        <li><b>/mute @user [time]</b> — Temporarily mute a member.</li>
-        <li><b>/unmute @user</b> — Remove a mute.</li>
-        <li><b>/warn @user [reason]</b> — Send a warning to a member.</li>
-        <li><b>/clear [amount]</b> — Delete multiple messages at once.</li>
-        <li><b>/lock</b> and <b>/unlock</b> — Lock or unlock a channel.</li>
-      </ul>
-    </div>
-    
-    <div class="section">
-      <span class="emoji">🛠️</span><strong>Utility Commands</strong>
-      <ul>
-        <li><b>/poll "Question" "Option1" "Option2"...</b> — Create a poll.</li>
-        <li><b>/remindme [time] [message]</b> — Set a personal reminder.</li>
-        <li><b>/serverinfo</b> — Display server stats and info.</li>
-        <li><b>/userinfo @user</b> — Show user profile details.</li>
-        <li><b>/avatar @user</b> — Get a user’s avatar in full size.</li>
-        <li><b>/ping</b> — Check bot latency.</li>
-      </ul>
-    </div>
-    
-    <div class="section">
-      <span class="emoji">⚙️</span><strong>Tips & Setup</strong>
-      <ul>
-        <li>Use <b>/config</b> to customize prefixes, moderation logs, and utility options.</li>
-        <li>Assign a <b>Mod</b> role and restrict commands if you don’t want everyone using moderation tools.</li>
-        <li>Combine moderation with utilities for both safety and engagement.</li>
-      </ul>
-    </div>
-    
-    <div class="section">
-      <span class="emoji">💡</span><strong>Example Workflow</strong>
-      <div class="example">
-        <ul>
-          <li>A spammer joins → <b>/mute @user 10m</b>.</li>
-          <li>Community votes on a change → <b>/poll "New channel theme?" "Gaming" "Music"</b>.</li>
-          <li>You need to clean chat → <b>/clear 50</b>.</li>
-          <li>Want info about a member → <b>/userinfo @user</b>.</li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="support">
-      <span class="emoji">🤝</span>
-      <strong>Support</strong><br>
-      If you need help, join the support server:
-      <!-- Add your support server invite link below -->
-      <br>
-      <a href="#" target="_blank">Support Server Invite</a>
-    </div>
-  </div>
+  <header>Elliot Training</header>
+  <main>
+    <h2>Elite Training</h2>
+    <h2>Easy Training</h2>
+    <h2>Special Training</h2>
+    <h2>Hard Training</h2>
+    <button onclick="startTraining()">Start</button>
+  </main>
+
+  <script>
+    function startTraining() {
+      alert("Welcome to Elliot Training! Let's get started 🚀");
+      // You can redirect to another page if needed:
+      // window.location.href = "nextpage.html";
+    }
+  </script>
 </body>
 </html>
+```
